@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator1</title>
+</head>
+<body>
+	<div class="inputfield">
+		<input type="number" id="input1" placeholder="Insert first Number"> </input> 
+		<select id="operations">test
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			<option>%</option>
+		</select>
+		<input type="number" id="input2" placeholder="Insert second Number"> </input> 
+		<button id="calculate">Try me!</button>
+	</div>
+
+	<script>
+		setInterval(function()
+		{
+    		alert("Please, use me...");
+  		}, 30000);
+
+		const input1 = document.getElementById("input1");
+		const input2 = document.getElementById("input2");
+		const operations = document.getElementById("operations");
+		const button = document.getElementById("calculate");
+	
+		button.addEventListener("click", function() 
+		{
+			const num1 = parseFloat(input1.value);
+			if (num1 < 0)
+			{
+				alert("Error: Input cannot be negative!");
+				return;
+			}
+			const num2 = parseFloat(input2.value);
+			if (num2 < 0)
+			{
+				alert("Error: Input cannot be negative!");
+				return;
+			}
+			const op = operations.value;
+			let res;
+
+			if (op === "+")
+				res = num1 + num2;
+			else if (op === "-")
+				res = num1 - num2;
+			else if (op === "*")
+				res = num1 * num2;
+			else if (op === "/")
+			{
+				if (num2 === 0)
+					alert("It’s over 9000!");
+				res = num1 / num2;
+			}
+			else if (op === "%")
+			{
+				if (num2 === 0)
+				{
+					alert("It’s over 9000!");
+					return;
+				}	
+				res = num1 % num2;
+			}
+			console.log(res);
+			alert("Result: " + res);
+		});
+	</script>
+</body>
+</html>
